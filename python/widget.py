@@ -72,6 +72,7 @@ delf = fitting.delf
 ###### Plotting Function #######
 ################################
 
+# Define plotting function
 def f(M,bpref,dpref,rc,rho00,gpref):
     
     # Define r
@@ -97,9 +98,6 @@ def f(M,bpref,dpref,rc,rho00,gpref):
     plt.xlabel("Radius (kpc)")
     plt.ylabel("Velocity (km/s)")
     
-    plt.legend()
-    plt.show()
-      
     # Chi squared and reduced chi squared
     # Residuals
     r = np.linspace(0.1,100,69)
@@ -108,9 +106,15 @@ def f(M,bpref,dpref,rc,rho00,gpref):
     errors = np.sqrt(v_err1**2 + fitting.v_i**2) #second term is inclination uncertainty
     # Chi squared
     chisquared = np.sum(residuals**2/errors**2)
+    #chisquared = stats.chisquare(v_dat,totalcurve(r,M,bpref,dpref,rc,rho00,gpref))
     reducedchisquared = chisquared * (1/(len(r_dat)-6))
-    print("Chi squared = {:.5f}".format(chisquared))
-    print("Reduced Chi squared = {:.5f}.".format(reducedchisquared))
+    
+    props = dict(boxstyle='round', facecolor='white', alpha=0.5)
+    plt.text(80,170,r"$\chi^2$: {:.5f}".format(chisquared)+'\n'+r"Reduced: {:.5f}".format(reducedchisquared),bbox=props)
+    #plt.text(80,150,,bbox=props)
+    
+    plt.legend(loc='upper right')
+    plt.show()
 
 ###############################
 ######### Appearance ##########
