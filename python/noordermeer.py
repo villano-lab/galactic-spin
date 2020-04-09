@@ -38,16 +38,23 @@ v_err1 = np.asarray(data['ey'])
 ################################
 ####### Uncertainty band #######
 ################################
+# convert to numpy arrays
 r_bottomband = np.asarray(data_greyb_bottom['xx'])
 v_bottomband = np.asarray(data_greyb_bottom['yy'])
 r_topband = np.asarray(data_greyb_top['xx'])
 v_topband = np.asarray(data_greyb_top['yy'])
 
-tgb, cgb, kgb = inter.splrep(r_bottomband,v_bottomband)
-tgt, cgt, kgt = inter.splrep(r_topband,v_topband)
+band = (v_topband - v_bottomband)/2
+# for weightdata, lengths of v_err1 and band must equal, make band array same length as v_err1
+band = band[0::28]
+band = band[1:]
 
-noord_greyb_bottom = inter.BSpline(tgb,cgb,kgb)
-noord_greyb_top = inter.BSpline(tgt,cgt,kgt)
+# smoothing - new, `spline` would not run on my computer
+tb, cb, kb = inter.splrep(r_bottomband,v_bottomband)
+tt, ct, kt = inter.splrep(r_topband,v_topband)
+
+greyb_bottom = inter.BSpline(tb, cb, kb)
+greyb_top    = inter.BSpline(tt, ct, kt)
 
 ################################
 ######### Total curve ##########

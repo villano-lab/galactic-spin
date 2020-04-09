@@ -2,19 +2,22 @@
 ########### Imports ############
 ################################
 
-#import sys 
+import sys 
 #sys.path.append('../python/')
 import NGC5533_functions as nf
+import noordermeer as noord               # Traced data of Galaxy NGC 5533
 import numpy as np
 import matplotlib.pyplot as plt
 import lmfit as lm
 import dataPython as dp
+import scipy.interpolate as inter
 
 ################################
 ##### Measured data points #####
 ################################
 
 data = dp.getXYdata_wXYerr('data/100kpc_data.txt')
+#data = dp.getXYdata_wXYerr('../galactic-spin-binder/NGC_5533/data/final/100kpc_data.txt')
 r_dat = np.asarray(data['xx'])
 v_dat = np.asarray(data['yy'])
 v_err0 = np.asarray(data['ex'])
@@ -23,15 +26,23 @@ v_err1 = np.asarray(data['ey'])
 ###########################################
 ###### Uncertainty Band and Weights #######
 ###########################################
+
+# Uncertainty band, using Noordermeer's function with a guessed delta_i
 delta_i = 3     # guessed value
 v_i = (v_dat / np.tan(52*(np.pi/180)) * delta_i *(np.pi/180))
+
+# Traced uncertainty band
+band = noord.band
+greyb_bottom = noord.greyb_bottom
+greyb_top = noord.greyb_top
 
 #change r_dat so it's strictly increasing
 r_dat, v_dat, v_err0, v_err1 = (np.asarray(list(a)) for a in zip(*sorted(zip(r_dat, v_dat, v_err0, v_err1))))
 #converting v_err1 to an array
 v_err1_array = np.asarray(v_err1)
 # Express as weights
-weighdata = 1/(np.sqrt((v_err1**2)+(v_i**2)))
+#weighdata = 1/(np.sqrt((v_err1**2)+(v_i**2)))
+weighdata = 1/(np.sqrt((v_err1**2)+(band**2)))
 
 ################################
 ########## Function ############
@@ -73,7 +84,7 @@ f_fit = f_mod.fit(v_dat,f_params,r=r_dat,weights=weighdata)
 ##########################################
 
 bestf = f_fit.best_fit
-delf = f_fit.eval_uncertainty()
+#delf = f_fit.eval_uncertainty()
 
 f_dict = f_fit.best_values
 f_M = f_dict['M']
