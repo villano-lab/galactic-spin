@@ -43,8 +43,8 @@ v_bottomband = np.asarray(data_greyb_bottom['yy'])
 r_topband = np.asarray(data_greyb_top['xx'])
 v_topband = np.asarray(data_greyb_top['yy'])
 
-tgb, cgb, kgb = inter.splrep(r_bottomband,v_topband)
-tgt, cgt, kgt = inter.splrep(r_topband, v_topband)
+tgb, cgb, kgb = inter.splrep(r_bottomband,v_bottomband)
+tgt, cgt, kgt = inter.splrep(r_topband,v_topband)
 
 noord_greyb_bottom = inter.BSpline(tgb,cgb,kgb)
 noord_greyb_top = inter.BSpline(tgt,cgt,kgt)
