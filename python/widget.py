@@ -66,7 +66,7 @@ best_dpref = fitting.f_pref
 best_rc = fitting.f_rc
 best_rho00 = fitting.f_hrho00
 best_gpref = fitting.f_gpref
-delf = fitting.delf
+#delf = fitting.delf
 
 ################################
 ###### Plotting Function #######
@@ -90,9 +90,8 @@ def f(M,bpref,dpref,rc,rho00,gpref):
     plt.plot(r,halo(r,rc,rho00),label=("Halo"),color='green')
     plt.plot(r,gas(r,gpref),label=("Gas"),color='blue')
     plt.plot(r,totalcurve(r,M,bpref,dpref,rc,rho00,gpref),label=("Total Curve"),color='red')
-    plt.fill_between(r_dat,
-                     totalcurve(r_dat,M,bpref,dpref,rc,rho00,gpref)-delf,
-                     totalcurve(r_dat,M,bpref,dpref,rc,rho00,gpref)+delf,
+    plt.fill_between(r,
+                     noord.greyb_bottom(r),noord.greyb_top(r),
                      color='#dddddd')
     plt.title("Interactive Rotation Curve - Galaxy: NGC 5533")
     plt.xlabel("Radius (kpc)")
@@ -103,7 +102,7 @@ def f(M,bpref,dpref,rc,rho00,gpref):
     r = np.linspace(0.1,100,69)
     residuals = v_dat - totalcurve(r_dat,M,bpref,dpref,rc,rho00,gpref)
     # Determining errors
-    errors = np.sqrt(v_err1**2 + fitting.v_i**2) #second term is inclination uncertainty
+    errors = np.sqrt(v_err1**2 + fitting.band**2) #second term is inclination uncertainty
     # Chi squared
     chisquared = np.sum(residuals**2/errors**2)
     #chisquared = stats.chisquare(v_dat,totalcurve(r,M,bpref,dpref,rc,rho00,gpref))
