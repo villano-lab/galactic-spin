@@ -74,7 +74,7 @@ f_params.add('c', value=1,min=0,max=100)           #Prefactor
 # Disk
 f_params.add('pref', value=1,min=0, max=100)       #Prefactor
 # Gas
-f_params.add('gpref', value=1,min=.8, max=1.2)     #Prefactor
+f_params.add('gpref', value=1, vary=False)     #Prefactor
 
 # Do fit
 f_fit = f_mod.fit(v_dat,f_params,r=r_dat,weights=weighdata)
