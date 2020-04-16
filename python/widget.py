@@ -102,7 +102,7 @@ def f(M,bpref,dpref,rc,rho00,gpref):
     r = np.linspace(0.1,100,69)
     residuals = v_dat - totalcurve(r_dat,M,bpref,dpref,rc,rho00,gpref)
     # Determining errors
-    errors = np.sqrt(v_err1**2 + fitting.band**2) #second term is inclination uncertainty
+    errors = np.sqrt(v_err1**2 + noord.band**2) #second term is inclination uncertainty
     # Chi squared
     chisquared = np.sum(residuals**2/errors**2)
     #chisquared = stats.chisquare(v_dat,totalcurve(r,M,bpref,dpref,rc,rho00,gpref))
