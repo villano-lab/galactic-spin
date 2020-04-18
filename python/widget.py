@@ -118,13 +118,13 @@ def f(M,bpref,dpref,rc,rho00,gpref):
             xycoords=('axes fraction', 'figure fraction'),
             textcoords='offset points',
             size=22, ha='left')
-    textt= 'In a strictly statistical sense,  a Reduced $\chi^2$ of zero indicates \na perfect fit. However, such a fit may be artificial and bear no \nphysical meaning. In this fit, the Reduced $\chi^2$ is around 1 due \nprimarily to the gas component, which is actually fixed \n(according to the physical characteristics of the Hydrogen gas it \nrepresents, see our video for more details). Though here we allow \nyou to break the laws of nature and move each component around \nas you please. See how "good" of a fit you can get!'
+    textt= 'In a strictly statistical sense, a Reduced $\chi^2$ of zero indicates \na perfect fit. However, such a fit may be artificial and bear no \nphysical meaning; a Reduced $\chi^2$ much less than zero often \nindicates that more parameters were used than represent \nthe physical system. In this fit, the Reduced $\chi^2$ is around 1 \ndue primarily to the gas component, which is actually fixed \n(according to the physical characteristics of the Hydrogen gas \nit represents; see our video for more details). Here, we allow \nyou to break the laws of nature and scale each component \nas you please. See how "good" of a fit you can get!'
     plt.annotate(textt,
-            xy=(0, 0), xytext=(510, 280),
+            xy=(0, 0), xytext=(510, 230),
             xycoords=('axes fraction', 'figure fraction'),
             textcoords='offset points',
             size=14, ha='left')
-    plt.annotate('source: E.  Noordermeer.The  rotation  curves  of  flattened  sérsic  bulges.MNRAS,385(3):1359–1364, Apr 2008',
+    plt.annotate('Data source: E. Noordermeer. The rotation curves of flattened Sérsic bulges. MNRAS,385(3):1359–1364, Apr 2008',
             xy=(0, 0), xytext=(0,0),
             xycoords=('axes fraction', 'figure fraction'),
             textcoords='offset points',
