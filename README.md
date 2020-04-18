@@ -13,3 +13,10 @@ This is a repository for an interactive fitting graphic for galactic rotation cu
 The above link is to a version of the notebook made specifically to be run on binder with minimal code visible.
 For those interested, [here](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=galactic-spin-binder%2FNGC_5533%2FWidget-chi-squared-displayed.ipynb)
 is a version with the full code visible.
+
+# References
+All of our data comes from Noordermeer 2018, along with the equations used for many of our calculations. We also used Casertano 1983 for equations.
+
+Casertano, Stefano. “Rotation Curve of the Edge-on Spiral Galaxy NGC 5907: Disc and Halo Masses.” Mon. Not. R. Astr. Soc. 203 (August 17, 1983): 735–47. [https://doi.org/10.1093/mnras/203.3.735](https://doi.org/10.1093/mnras/203.3.735).
+
+Noordermeer, Edo. “The Rotation Curves of Flattened Sersic Bulges.” Mon. Not. R. Astron. Soc., October 22, 2018. [https://doi.org/10.1111/j.1365-2966.2008.12837.x](https://doi.org/10.1111/j.1365-2966.2008.12837.x).
