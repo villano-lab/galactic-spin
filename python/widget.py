@@ -113,6 +113,23 @@ def f(M,bpref,dpref,rc,rho00,gpref):
     #plt.text(80,150,,bbox=props)
     
     plt.legend(loc='upper right')
+    plt.annotate('Can you get the Reduced $\chi^2$ to zero?',
+            xy=(0, 0), xytext=(510, 430),
+            xycoords=('axes fraction', 'figure fraction'),
+            textcoords='offset points',
+            size=22, ha='left')
+    textt= 'In a strictly statistical sense,  a Reduced $\chi^2$ of zero indicates \na perfect fit. However, such a fit may be artificial and bear no \nphysical meaning. In this fit, the Reduced $\chi^2$ is around 1 due \nprimarily to the gas component, which is actually fixed \n(according to the physical characteristics of the Hydrogen gas it \nrepresents, see our video for more details). Though here we allow \nyou to break the laws of nature and move each component around \nas you please. See how "good" of a fit you can get!'
+    plt.annotate(textt,
+            xy=(0, 0), xytext=(510, 280),
+            xycoords=('axes fraction', 'figure fraction'),
+            textcoords='offset points',
+            size=14, ha='left')
+    plt.annotate('source: E.  Noordermeer.The  rotation  curves  of  flattened  sérsic  bulges.MNRAS,385(3):1359–1364, Apr 2008',
+            xy=(0, 0), xytext=(0,0),
+            xycoords=('axes fraction', 'figure fraction'),
+            textcoords='offset points',
+            size=10, ha='left', va='bottom')
+    
     plt.show()
 
 ###############################
