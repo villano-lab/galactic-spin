@@ -30,9 +30,12 @@ Please note that, unfortunately, the sliders do not appear to work in any mobile
 |Chrome Mobile  | 17/04/2020 | Sliders could not be used. |
 
 # References
-All of our data comes from Noordermeer 2018, along with the equations used for many of our calculations. We also used Casertano 1983 for equations.
+All of our data and the equations used in most of our calculations comes from Noordermeer (2008). We also used Casertano 1983 for the disk component equations and Karukes, et al., for the halo component.
 
-Casertano, Stefano. “Rotation Curve of the Edge-on Spiral Galaxy NGC 5907: Disc and Halo Masses.” Mon. Not. R. Astr. Soc. 203 (August 17, 1983): 735–47. [https://doi.org/10.1093/mnras/203.3.735](https://doi.org/10.1093/mnras/203.3.735).  
+Casertano, Stefano. “Rotation Curve of the Edge-on Spiral Galaxy NGC 5907: Disc and Halo Masses.” Mon. Not. R. Astr. Soc. 203 (August 17, 1983): 735–47. [https://doi.org/10.1093/mnras/203.3.735](https://doi.org/10.1093/mnras/203.3.735). 
+
+Karukes, E. V., P. Salucci, and Gianfranco Gentile. "The dark matter distribution in the spiral NGC 3198 out to 0.22 Rvir." Astronomy & Astrophysics 578 (2015): A13. https://doi.org/10.1051/0004-6361/201425339
+
 Noordermeer, Edo. “The Rotation Curves of Flattened Sersic Bulges.” Mon. Not. R. Astron. Soc., April 2008. [https://doi.org/10.1111/j.1365-2966.2008.12837.x](https://doi.org/10.1111/j.1365-2966.2008.12837.x).
 
 # Contributors
