@@ -8,7 +8,7 @@ This is a repository for an interactive fitting graphic for galactic rotation cu
 
 # Instructions
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=binder%2FRotation_Curve_Sliders.ipynb)
-<br /> To run the interactive fitting tool, click on the binder button above. Please be patient when waiting for the environment to load; it may take a few minutes. Once the notebook is open, in the top bar, select `Cell`, then choose `Run All`. When both cells are finished running, a plot with sliders will appear beneath the visible code. Enjoy!
+<br /> To run the interactive fitting tool, click on the binder button above. Please be patient when waiting for the environment to load; **note that it may take about 10 minutes to load**. Once the notebook is open, in the top bar, select `Cell`, then choose `Run All`. When both cells are finished running, a plot with sliders will appear beneath the visible code. Enjoy!
 
 The above link is to a version of the notebook made specifically to be run on binder with minimal code visible.
 For those interested, [here](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=binder%2FRotation_Curve_Sliders-With-Code.ipynb)
