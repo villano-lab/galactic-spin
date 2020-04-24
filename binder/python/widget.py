@@ -118,9 +118,9 @@ def f(M,bpref,dpref,rc,rho00,gpref):
             xycoords=('axes fraction', 'figure fraction'),
             textcoords='offset points',
             size=20, ha='left')
-    plt.text(105,300,r"In a strictly statistical sense, a Reduced $\chi^2$ of zero", fontsize=13),
-    plt.text(105,275,"indicate physical meaning; a Reduced $\chi^2$ much less", fontsize=13),
-    plt.text(105,250,"than one often indicates that more parameters were", fontsize=13),
+    plt.text(105,300,"In a strictly statistical sense, a Reduced $\chi^2$ of zero", fontsize=13),
+    plt.text(105,275,"represents a perfect fit; however, a Reduced $\chi^2$ much", fontsize=13),
+    plt.text(105,250,"less than one often indicates that more parameters were", fontsize=13),
     plt.text(105,225,"used than represent the physical system. In this fit,", fontsize=13),
     plt.text(105,200,"the Reduced $\chi^2$ is around 1 due primarily to the", fontsize=13),
     plt.text(105,175,"gas component, which is actually fixed (according", fontsize=13),
