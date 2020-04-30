@@ -43,7 +43,7 @@ Karukes, E. V., P. Salucci, and Gianfranco Gentile. "The dark matter distributio
 
 Noordermeer, Edo. “The Rotation Curves of Flattened Sersic Bulges.” Mon. Not. R. Astron. Soc., April 2008. [https://doi.org/10.1111/j.1365-2966.2008.12837.x](https://doi.org/10.1111/j.1365-2966.2008.12837.x).
 
-Citations for anything used in the `graphics` directory can be found in our [presentation](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing)
+Citations for anything used in the `graphics` directory can be found in our [presentation](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing).
 
 # Contributors
 Judit Bergfalk  
