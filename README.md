@@ -16,7 +16,7 @@ is a version with the full code visible. You can also run either version locally
 
 ## Presentation Materials
 
-We did a presentation related to this widget. We have [slides](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing), a supplementary entry on the [mass to light ratio](https://docs.google.com/presentation/d/1I95JY5h8yNIoOEgOVPC_9bh0AmVL0mldYBuLYkMU7d0/edit?usp=sharing), and other supplementary graphics in the [graphics directory](https://github.com/villano-lab/galactic-spin/tree/master/graphics).
+We did a presentation related to this widget. We have a [video](https://www.youtube.com/watch?v=H470EgAheuM), [slides](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing), a supplementary entry on the [mass to light ratio](https://docs.google.com/presentation/d/1I95JY5h8yNIoOEgOVPC_9bh0AmVL0mldYBuLYkMU7d0/edit?usp=sharing), and other supplementary graphics in the [graphics directory](https://github.com/villano-lab/galactic-spin/tree/master/graphics).
 
 ## Working Browsers
 The following browsers have been tested with our notebook in binder.  
