@@ -14,6 +14,10 @@ The above link is to a version of the notebook made specifically to be run on bi
 For those interested, [here](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=binder%2FRotation_Curve_Sliders-With-Code.ipynb)
 is a version with the full code visible. You can also run either version locally by cloning the repository and running one of the notebooks in the `binder` directory.
 
+## Presentation Materials
+
+We did a presentation related to this widget. We have [slides](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing), a supplementary entry on the [mass to light ratio](https://docs.google.com/presentation/d/1I95JY5h8yNIoOEgOVPC_9bh0AmVL0mldYBuLYkMU7d0/edit?usp=sharing), and other supplementary graphics in the [graphics directory](https://github.com/villano-lab/galactic-spin/tree/master/graphics).
+
 ## Working Browsers
 The following browsers have been tested with our notebook in binder.  
 Please note that, unfortunately, the sliders do not appear to work in any mobile browser.
