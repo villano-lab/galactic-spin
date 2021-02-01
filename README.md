@@ -24,8 +24,8 @@ Please note that, unfortunately, the sliders do not appear to work in any mobile
 | Browser | Date Checked | Status |
 |:--------|:------------:|--------|
 |         | **Desktop Browsers** ||
-| Firefox | 23/04/2020   | Working|
-| Safari  | 16/04/2020   | Working|
+| Firefox | 25/01/2021   | Working|
+| Safari  | 25/01/2021   | Working|
 | Chrome  | 23/04/2020   | Working|
 | Edge    | 17/04/2020   | Working|
 | Internet Explorer | 17/04/2020 | Page did not load within 10 minutes. |
