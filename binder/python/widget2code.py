@@ -35,8 +35,6 @@ import scipy.stats as stats
 import warnings
 warnings.filterwarnings("ignore")  #ignore warnings
 
-def blockPrint():
-    sys.stdout = open(os.devnull, 'w')
 
 # In[2]:
 
@@ -163,6 +161,9 @@ g_fit = g_mod.fit(v_dat,g_params,r=r_dat,weights=weightdata)
 # Define for plotting
 bestg = g_fit.best_fit
 #delg = g_fit.eval_uncertainty()
+print('Fit information for all-component fit:')
+g_fit
+
 
 # In[6]:
 
