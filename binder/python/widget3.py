@@ -32,26 +32,26 @@ warnings.filterwarnings("ignore")  #ignore warnings
 # Disable
 def blockPrint():
     sys.stdout = open(os.devnull, 'w')
-import widget2code as wi
+import ngc7814code as wi
 
 # Define components
-def bulge(BX):
-    return BX*wi.rbulgev_fit
+def bulge(B):
+    return B*wi.b
 
-def disk(DX):
-    return DX*wi.rdiskv_fit
+def disk(D):
+    return D*wi.d
 
-def halo(r_dat,rc,rho00):
-    return nf.h_v(r_dat,rc,rho00,load=False)
+def halo(r,rc,rho00):
+    return nf.h_v(r,rc,rho00,load=False)
 
-def gas(GX):
-    return GX*wi.rgasv_fit
+def gas(G):
+    return G*wi.g
 
-def totalcurve(rval,GX,BX,DX,rc,rho00):
-    return np.sqrt((gas(GX)**2)
-                   + (bulge(BX)**2) 
-                   + (disk(DX)**2)
-                   + (halo(wi.rval,rc,rho00)**2))
+def totalcurve(r,G,B,D,rc,rho00):
+    return np.sqrt((gas(G)**2)
+                   + (bulge(B)**2) 
+                   + (disk(D)**2)
+                   + (halo(r,rc,rho00)**2))
 
 
 # In[9]:
@@ -59,9 +59,9 @@ def totalcurve(rval,GX,BX,DX,rc,rho00):
 
 #best fitted prefactor values for each component, to be used as default (initial) values for widget sliders
 g_dict = wi.g_fit.best_values
-best_GX = g_dict['GX']
-best_BX = g_dict['BX']
-best_DX = g_dict['DX']
+best_G = g_dict['G']
+best_B = g_dict['B']
+best_D = g_dict['D']
 best_rc = g_dict['rc']
 best_rho00 = g_dict['rho00']
 
@@ -70,47 +70,43 @@ best_rho00 = g_dict['rho00']
 
 
 # Define plotting function
-def f(GX,BX,DX,rc,rho00):
+def f(G,B,D,rc,rho00):
     
     # Define r
-    xmax=12 #kpc
-    r = np.linspace(0,11.2,19)
+    xmax=20 #kpc
+    rval = np.linspace(0,11.2,19)
     
     # Plot
     plt.figure(figsize=(11,6))
     plt.xlim(0,xmax)
     plt.ylim(0,360)
     
-    plt.errorbar(wi.r_dat,wi.v_dat,yerr=wi.v_err1,fmt='bo',label='Data')
-    plt.plot(wi.rbulger,bulge(BX),label=("Bulge"),color='orange')
-    plt.plot(wi.rdiskr,disk(DX),label=("Disk"),color='purple')
-    plt.plot(wi.rval,halo(wi.rval,rc,rho00),label=("Halo"),color='green')
-    plt.plot(wi.rgasr,gas(GX),label=("Gas"),color='blue')
-    plt.plot(wi.r_dat,totalcurve(wi.rval,GX,BX,DX,rc,rho00),label=("Total Curve"),color='red')
-    plt.title("Interactive Rotation Curve - Galaxy: NGC 5005")
-    
-    #plt.plot(rval,halo_curve,'r-',label='Correct Halo')
-    #plt.plot(rbulger,g_b*rbulgev,label='Correct bulge')
+    plt.errorbar(wi.r,wi.v_dat,yerr=wi.v_err1,fmt='bo',label='Data')
+    plt.plot(wi.r,bulge(B),label=("Bulge"),color='orange')
+    plt.plot(wi.r,disk(D),label=("Disk"),color='purple')
+    plt.plot(wi.r,halo(wi.r,rc,rho00),label=("Halo"),color='green')
+    plt.plot(wi.r,gas(G),label=("Gas"),color='blue')
+    plt.plot(wi.r,totalcurve(wi.r,G,B,D,rc,rho00),label=("Total Curve"),color='red')
+    plt.title("Interactive Rotation Curve - Galaxy: NGC7814")
+  
     plt.xlabel("Radius (kpc)")
     plt.ylabel("Velocity (km/s)")
     
     
     plt.legend(loc='lower right')
- 
-    # Chi squared and reduced chi squared
-    # Residuals
     
-    residuals = wi.v_dat - totalcurve(wi.rval,GX,BX,DX,rc,rho00)
+     
+    #chi squared button commented out for now bc tiny graph
+    residuals = wi.v_dat - totalcurve(wi.r,G,B,D,rc,rho00)
     # Determining errors
     errors = wi.v_err1**2 #second term is inclination uncertainty
     # Chi squared
     chisquared = np.sum(residuals**2/errors**2)
     #chisquared = stats.chisquare(v_dat,totalcurve(r,M,bpref,dpref,rc,rho00,gpref))
-    reducedchisquared = chisquared * (1/(len(wi.r_dat)-6))
+    reducedchisquared = chisquared * (1/(len(wi.r)-6))
     
     props = dict(boxstyle='round', facecolor='white', alpha=0.5)
     plt.text(10,300,r"$\chi^2$: {:.5f}".format(chisquared)+'\n'+r"Reduced: {:.5f}".format(reducedchisquared),bbox=props)
-
     plt.show()
 
 
@@ -123,22 +119,22 @@ layout = {'width':'600px'}
 
 # Define slides
 
-GX = FloatSlider(min=0, max=5, step=0.1, 
-                    value=best_GX,
+G = FloatSlider(min=0, max=5, step=0.1, 
+                    value=best_G,
                     description='Gas Prefactor', 
                     readout_format='.2f', 
                     orientation='horizontal', 
                     style=style, layout=layout)
 
-BX = FloatSlider(min=0, max=5, step=0.1, 
-                    value=best_BX, 
+B = FloatSlider(min=0, max=10, step=0.1, 
+                    value=best_B, 
                     description='Bulge Prefactor', 
                     readout_format='.2f', 
                     orientation='horizontal', 
                     style=style, layout=layout)
 
-DX = FloatSlider(min=0, max=5, step=0.1, 
-                    value=best_DX, 
+D = FloatSlider(min=0, max=5, step=0.1, 
+                    value=best_D, 
                     description='Disk Prefactor', 
                     readout_format='.2f', 
                     orientation='horizontal', 
@@ -158,9 +154,9 @@ rho00 = FloatSlider(min=0, max=1e9, step=1e7,
 # Interactive widget
 def interactive_plot(f):
     interact = interactive(f,
-                               GX = GX,
-                               BX = BX, 
-                               DX = DX, 
+                               G = G,
+                               B = B, 
+                               D = D, 
                                rc = rc,
                                rho00 = rho00,
         
@@ -176,10 +172,10 @@ out = Output()
 
 def on_button_clicked(_):
     #display(Javascript('IPython.notebook.execute_cells_below()'))
-    BX.value = best_BX
-    DX.value = best_DX
+    B.value = best_B
+    D.value = best_D
     rho00.value = best_rho00
-    GX.value = best_GX
+    G.value = best_G
 
 button.on_click(on_button_clicked)
 
