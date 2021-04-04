@@ -32,13 +32,13 @@ c_x=w/2
 c_y=h/2.2
 
 #galaxy parameters
-rcut=2.4 #cutoff radius, kpc for ngc5005...
-rho00=.31e9 #Msun/kpc^2 for ngc5533
+rcut= 2.1 #cutoff radius, kpc for ngc7814...
+#rho00=154.4/1000 /(1e3**3) #Msun/kpc^3 for ngc7814 NOT CURRENTLY BEING USED. ALSO WHY IS IT SO SMALL???
 
 GG = 4.30091e-6    #gravitational constant (kpc/solar mass*(km/s)^2)
 
 #visual scaling
-scale=.2e9 #the number of theoretical black holes each graphed dot actually presents, somewhat arbitrary but 
+scale=23e6 #the number of theoretical black holes each graphed dot actually presents, somewhat arbitrary but 
 #should be a number that does't require the plotting too many or too few dots representing bh's
 #units: scale = [#number of actual black holes / plotted dot]
 kpctopixels=50 #visual scaling, varies depending on size of galaxy image (and actual size of galaxy)
@@ -58,16 +58,18 @@ maxmass=3.7 #solar masses, just smaller then the smallest black hole ever discov
 start=.5*maxmass #default mass value for slider
 
 
+                                  
 #calculate the mass distribution on the galaxy using parametrs of similar galaxies (???)
-r = symbols('r')
-X=r/rcut
-Z = rho00/(X*(1+X)**2) #NFW (dark halo) density profile. I'm assuming Rs is cutoff radius. is this correct?
-RHO=4*np.pi*r**2*Z #
-RRR=integrate(RHO)
-func = lambdify(r, RRR,'numpy') #returns a numpy-ready function
+#r = symbols('r')
+#X=r/rcut
+#Z = rho00/(X*(1+X)**2) #NFW (dark halo) density profile. I'm assuming Rs is cutoff radius. is this correct?
+#RHO=4*np.pi*r**2*Z #
+#RRR=integrate(RHO)
+#func = lambdify(r, RRR,'numpy') #returns a numpy-ready function
+data = dp.getXYdata_wXYerr('testing/7814/ngc7814data')
+r = np.asarray(data['xx'])
+viso=(1-((rcut/r)*np.arctan(r/rcut))) #this is just the unitless part of the h_viso function in our library
 rr=np.linspace(minkpc,maxkpc,int(Max)) #kpc
-MX = func(rr) #reprepresents the total mass [Msun] at each point in the array rr [kpc]
-
 rrr = np.random.uniform(r1,r2,int(Max))
 
 angle=np.random.uniform(0,2*np.pi,int(Max)) #angle 0 to 360 degrees for fulle circle (donut) for each bracket
@@ -82,9 +84,7 @@ angle=np.random.uniform(0,2*np.pi,int(Max)) #angle 0 to 360 degrees for fulle ci
 
 #**********************importing text files******************************
 #there's no need to import the radius for each component as everything has the same r array (the r array of the raw data)
-#data:
-data = dp.getXYdata_wXYerr('testing/7814/ngc7814data')
-r = np.asarray(data['xx'])
+
 v_dat = np.asarray(data['yy'])
 v_err1 = np.asarray(data['ey'])
 #disk:

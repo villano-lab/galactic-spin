@@ -20,25 +20,11 @@ import dataPython as dp
 #getting so that the halo component/total RC curve updates as bh widgets update
 
 
-
-
-
-X1=1e-3
 def h(r,Mbh,arraysize):
-    Me=X1*Mbh*arraysize*wi.scale*wi.func(r) #units: [Msun/bh] * [dot] * [bh/dot] = Msun
-    return np.sqrt(Me*wi.GG/r) #is it rc or just r???? units: ( [Msun]* [(km/s)^2*(kpc/Msun)] / kpc )^.5 = km/s
-'''
-X=1e-12 #this is a currently random scale factor just to fit by eye. the model for the halo is wrong right now
-C=.1
-X=C*X
-rho00X=.31e9
-def h(r,Mbh,arraysize):
-    Me=X*Mbh*arraysize*wi.scale*wi.func(r)/max(wi.func(r)) #units: [Msun/bh] * [dot] * [bh/dot] = Msun
-    return (4*Me)*np.pi*wi.GG*rho00X/(wi.rcut)*(1-((wi.rcut/r)*np.arctan(r/wi.rcut)))
-'''
-                                             
-                                              
-#is it rc or just r???? units: ( [Msun]* [(km/s)^2*(kpc/Msun)] / kpc )^.5 = km/s
+    Me=wi.scale*Mbh*arraysize #units: [bh/dot]*[Msun/bh] * [dot] * [Msun] = Msun --> changes as sliders are moved
+    MMM=Me*wi.viso #units: unitless * [Msun] = Msun
+    return np.sqrt(MMM*wi.GG/wi.rcut) #is it rc or just r? the model looks better with rcut 
+    #units: ( [Msun]* [(km/s)^2*(kpc/Msun)] / kpc )^.5 = km/s                                                                
 
 def t(r,Mbh,arraysize):
     return np.sqrt((wi.d)**2
@@ -83,14 +69,19 @@ def f(arraysize,Mbh):
      # Define r, for some reason this isn't working in code7814.py, so put directly here:
     data = dp.getXYdata_wXYerr('testing/7814/ngc7814data')
     r = np.asarray(data['xx'])
-    
+    z=r[0]
+    rr=[0,z]
     ax1.scatter(x,y,color="r",marker='o',s=Mbh)
     ax1.imshow(img)
     ax1.axis('off')
+    ax2.tick_params(axis='both', which='major', labelsize=30)
     ax2.plot(r,h(r,Mbh,arraysize),label=("Dark Matter Halo"),color='green')
+    ax2.plot(rr,[0,h(z,Mbh,arraysize)[0]],color='green') #straight lining connecting halo curve to origin, for visual aesthetic
     ax2.errorbar(r,wi.v_dat,yerr=wi.v_err1,fmt='bo',label='Data')
     ax2.plot(r,wi.b,label=("Bulge"),color='orange')
+    ax2.plot(rr,[0,wi.b[0]],color='orange') #straight line for bulge
     ax2.plot(r,wi.d,label=("Disk"),color='purple')
+    ax2.plot(rr,[0,wi.d[0]],color='purple') #straight line for disk
     ax2.plot(r,wi.g,label=("Gas"),color='blue')
     ax2.plot(r,t(r,Mbh,arraysize),label=("Total Curve"),color='red')
     ax2.set_xlim([wi.minkpc, 19])
@@ -99,7 +90,10 @@ def f(arraysize,Mbh):
     ax2.set_ylabel('Velocity [km/s]',fontsize = 30)
     ax2.set_xlabel('radius [kpc]',fontsize = 30)
     ax2.legend(loc='upper right',prop={'size': 20},ncol=3)
-   
+    ax2.text(.1, 310, 'How close can you get? \nA reduced $\chi^2$ less than 1 is considered a good fit',fontsize=30)
+    ax = plt.gca()
+    xticks = ax.xaxis.get_major_ticks() 
+    xticks[0].label1.set_visible(False)
     residuals = wi.v_dat - t(wi.r,Mbh,arraysize)
     # Determining errors
     errors = wi.v_err1**2 #second term is inclination uncertainty
@@ -110,7 +104,7 @@ def f(arraysize,Mbh):
     
     props = dict(boxstyle='round', facecolor='white', alpha=0.5)
     ax2.text(0.4,360,r"Reduced $\chi^2$:"+'\n'+"{:.2f}".format(reducedchisquared),bbox=props,size=30)
-
+    
    
     
 style = {'description_width': 'initial'}
@@ -132,7 +126,7 @@ Mbh = FloatSlider(min=wi.minmass, max=wi.maxmass, step=wi.minmass,
 #number of projected black dots slider
 arraysize = FloatSlider(min=wi.Min, max=wi.Max, step=wi.stepN, 
                 value=wi.best_A, 
-                description='Number of lil black holes multiplied by scale %.0e'%wi.scale, 
+                description='Number of lil black holes multiplied by scale %.1e'%wi.scale, 
                 readout= True,
                 readout_format='.2d', 
                 orientation='horizontal', 
