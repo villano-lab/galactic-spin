@@ -3,14 +3,10 @@
 ###############
 
 import numpy as np
-#import matplotlib.pyplot as plt
-#import scipy.optimize as opt
-#import lmfit as lm
 import sys
 sys.path.append('../../python/')
 import dataPython as dp
-#import NGC5533_functions as nf
-#from sympy import *
+import scipy.integrate as si
 
 ##############################
 ### Import data/text files ###
@@ -74,21 +70,24 @@ rho_NFW = lambda r: rho0 / ((r/rcut)*(1+r/rcut)**2)
 mass_inner = lambda r: rho_NFW(r) * 4 * np.pi * r**2
 
 # Mass integral: total mass at radius R (kpc)
-mass_r = lambda R: si.quad(mass_inner, 0, R) 
+#mass_r = lambda r: si.quad(mass_inner, 0, r)   
+# Integral keeps giving me errors, so I used Mathematica to do the integral for me, this is the result:
+def mass_r(r):
+    return 4 * rcut**3 * np.pi * rho0 * (-1 + rcut/(rcut+r) - np.log(rcut) + np.log(rcut+r))
 
 ########################################################
 ### Calculating halo velocity using only black holes ###
 ########################################################
 
-def halo_BH(radius,massBH):
-    return #something
+def halo_BH(r,mBH): 
+    return mBH * np.sqrt(G * mass_r(r)/r)           # multiplied by a prefactor
 
 ##################################
 ### Calculating total velocity ###
 ##################################
 
-def totalvelocity(r,Mbh,arraysize):
+def totalvelocity(r,mBH):
     return np.sqrt((disk_fitted)**2
                +(bulge_fitted)**2
                +(gas_fitted)**2
-               +(halo_BH())**2)
+               +(halo_BH(r,mBH))**2)
