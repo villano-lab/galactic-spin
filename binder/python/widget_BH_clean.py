@@ -39,7 +39,7 @@ maxkpc = 100
                        # too many or too few dots representing bh's
         
 # units: scale = [#number of actual black holes / plotted dot]
-kpctopixels = 10       # visual scaling, varies depending on size of galaxy image (and actual size of galaxy)
+kpctopixels = 30       # visual scaling, varies depending on size of galaxy image (and actual size of galaxy)
 r1 = minkpc*kpctopixels
 r2 = maxkpc*kpctopixels
 
@@ -138,16 +138,16 @@ layout = {'width':'600px'}
 # Mass of each black hole
 mBH = FloatSlider(min=minmassBH, max=maxmassBH, step=stepM, 
                 value=defaultmass,
-                description='Increasing the mass of each lil black holes by {:.1f} solar masses'.format(stepM), 
+                description='Mass of each lil black hole (increasing by {:.1f} solar masses)'.format(stepM), 
                 readout=True,
-                readout_format='.1f', 
+                readout_format='.1f',
                 orientation='horizontal', 
                 style=style, layout=layout)
 
 # Number of projected black dots slider
 arraysize = FloatSlider(min=minnumberBH, max=maxnumberBH, step=stepN, 
                 value=defaultnumber, 
-                description='Number of lil black holes multiplied by {:.1f}'.format(stepN), 
+                description='Number of lil black holes (multiplied by {:.1f})'.format(stepN), 
                 readout=True,
                 readout_format='.2d', 
                 orientation='horizontal', 
