@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import scipy.optimize as opt
 import lmfit as lm
 import sys
-sys.path.append('../../python')
+sys.path.append('../../../python/')
 import dataPython as dp
 import NGC5533_functions as nf
 from sympy import *
