@@ -45,7 +45,7 @@ r2 = maxkpc*kpctopixels
 
 # For number of black holes slider
 minnumberBH = 10                      # min number of black holes
-maxnumberBH = 500                     # max number of black holes
+maxnumberBH = 1000                     # max number of black holes
 defaultnumber = 0.5 * maxnumberBH     # default number of bh's for slider
 stepN = 0.1 * maxnumberBH             # step of # of bh's for slider
 
@@ -93,14 +93,14 @@ def f(arraysize,mBH):
     f.set_figwidth(30)
     
     # First plot - image with black holes
-    ax1.scatter(x,y,color="r",marker='o',s=mBH)
+    ax1.scatter(x,y,color="orangered",marker='o',s=mBH*10)      # s changes the size of the dots on the plot
     ax1.imshow(img)
     ax1.set_xlim(0,3970)
     ax1.set_ylim(0,3970)
     ax1.axis('off')
     
     # Second plot - rotation curve   
-    ax2.plot(radius_plot,wi5533.halo_BH(radius_plot,mBH),label=("Dark Matter Halo"),color='green')
+    ax2.plot(radius_plot,wi5533.halo_BH(radius_plot,mBH),label=("Dark Matter Halo - Tiny Black Holes"),color='green')
     ax2.errorbar(wi5533.r_dat,wi5533.v_dat,yerr=wi5533.v_err1,fmt='bo',label='Data')
     ax2.plot(radius_plot,wi5533.blackhole(radius_plot,wi5533.best_M),label=("Black Hole"),color='black')
     ax2.plot(radius_plot,wi5533.bulge(radius_plot,wi5533.best_bpref),label=("Bulge"),color='orange')

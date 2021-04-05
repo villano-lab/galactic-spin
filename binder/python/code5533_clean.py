@@ -80,10 +80,14 @@ G = 4.30091e-6            # gravitational constant (kpc/solar mass*(km/s)^2)
 # NFW (dark halo) density profile
 rho_NFW = lambda r: rho0 / ((r/rcut)*(1+r/rcut)**2)
 
-# Inner function
-mass_inner = lambda r: rho_NFW(r) * 4 * np.pi * r**2
+# Isothermal (dark halo) density profile
+rho_ISO = lambda r: rho0 / (1+(r/rcut)**2)
 
-# Mass integral: total mass at radius R (kpc)
+# Inner function
+#mass_inner = lambda r: rho_NFW(r) * 4 * np.pi * r**2
+mass_inner = lambda r: rho_ISO(r) * 4 * np.pi * r**2
+
+# Mass integral: total mass at radius r (kpc)
 #mass_r = lambda r: si.quad(mass_inner, 0, r)   
 # Integral keeps giving me errors, so I used Mathematica to do the integral for me, this is the result:
 def mass_r(r):
@@ -98,7 +102,6 @@ def halo_BH(r,mBH):
     y = mBH * np.sqrt(G * mass_r(r)/r)
     polynomial = interpd(x,y)
     return polynomial(r)
-#    return mBH * np.sqrt(G * mass_r(r)/r)           # multiplied by a prefactor
 
 ##################################
 ### Calculating total velocity ###
