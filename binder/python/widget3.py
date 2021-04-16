@@ -68,6 +68,8 @@ best_rho00 = g_dict['rho00']
 
 # In[10]:
 
+z=wi.r[0]
+rr=[0,z]
 
 # Define plotting function
 def f(G,B,D,rc,rho00):
@@ -82,11 +84,17 @@ def f(G,B,D,rc,rho00):
     plt.ylim(0,360)
     
     plt.errorbar(wi.r,wi.v_dat,yerr=wi.v_err1,fmt='bo',label='Data')
+    
     plt.plot(wi.r,bulge(B),label=("Bulge"),color='orange')
+    plt.plot(rr,[0,bulge(B)[0]],color='orange') #straight lining connecting halo curve to origin, for visual aesthetic
     plt.plot(wi.r,disk(D),label=("Disk"),color='purple')
+    plt.plot(rr,[0,disk(D)[0]],color='purple') #straight lining connecting halo curve to origin, for visual aesthetic
     plt.plot(wi.r,halo(wi.r,rc,rho00),label=("Halo"),color='green')
+    plt.plot(rr,[0,halo(wi.r,rc,rho00)[0]],color='green') #straight lining connecting halo curve to origin, for visual aesthetic
     plt.plot(wi.r,gas(G),label=("Gas"),color='blue')
     plt.plot(wi.r,totalcurve(wi.r,G,B,D,rc,rho00),label=("Total Curve"),color='red')
+    plt.plot(rr,[0,totalcurve(wi.r,G,B,D,rc,rho00)[0]],color='red') #straight lining connecting halo curve to origin, for visual aesthetic
+
     plt.title("Interactive Rotation Curve - Galaxy: NGC7814")
   
     plt.xlabel("Radius (kpc)")
@@ -107,6 +115,11 @@ def f(G,B,D,rc,rho00):
     
     props = dict(boxstyle='round', facecolor='white', alpha=0.5)
     plt.text(10,300,r"$\chi^2$: {:.5f}".format(chisquared)+'\n'+r"Reduced: {:.5f}".format(reducedchisquared),bbox=props)
+    plt.annotate('Data source: Fraternali1, Sancisi, Kamphuis. "A tale of two galaxies: light and mass in NGC 891 and NGC 7814". A&A Journal. Jun 2011',
+            xy=(0, 0), xytext=(0,5),
+            xycoords=('axes fraction', 'figure fraction'),
+            textcoords='offset points',
+            size=10, ha='left', va='bottom')
     plt.show()
 
 

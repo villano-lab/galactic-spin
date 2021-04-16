@@ -110,7 +110,12 @@ def f(GX,BX,DX,rc,rho00):
     
     props = dict(boxstyle='round', facecolor='white', alpha=0.5)
     plt.text(10,300,r"$\chi^2$: {:.5f}".format(chisquared)+'\n'+r"Reduced: {:.5f}".format(reducedchisquared),bbox=props)
-
+    plt.annotate('Data Source: Richards, et al. "Baryonic distributions in the dark matter halo of NGC 5005", MNRAS, Volume 449, Issue 4, 01 June 2015, Pages 3981–3996',
+            xy=(0, 0), xytext=(0,5),
+            xycoords=('axes fraction', 'figure fraction'),
+            textcoords='offset points',
+            size=10, ha='left', va='bottom')
+    
     plt.show()
 
 

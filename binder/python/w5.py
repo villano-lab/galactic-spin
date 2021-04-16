@@ -84,6 +84,7 @@ def f(arraysize,Mbh):
     ax2.plot(rr,[0,wi.d[0]],color='purple') #straight line for disk
     ax2.plot(r,wi.g,label=("Gas"),color='blue')
     ax2.plot(r,t(r,Mbh,arraysize),label=("Total Curve"),color='red')
+    ax2.plot(rr,[0,t(z,Mbh,arraysize)[0]],color='red') #straight line for total curve
     ax2.set_xlim([wi.minkpc, 19])
     ax2.set_ylim([0, 400])
     ax2.set_title('NGC 7814',fontsize = 40)
