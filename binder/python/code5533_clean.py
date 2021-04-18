@@ -29,7 +29,7 @@ v_err1 = noord.v_err1
 #####################
 
 def interpd(x,y):
-    return InterpolatedUnivariateSpline(x,y,k=4)
+    return InterpolatedUnivariateSpline(x,y,k=5)
 
 ################################
 ######### Components ###########
@@ -67,7 +67,7 @@ best_M = fitting.f_M
 best_bpref = fitting.f_c
 best_dpref = fitting.f_pref
 rcut = fitting.f_rc
-rho0 = fitting.f_hrho00
+#rho0 = fitting.f_hrho00
 best_gpref = fitting.f_gpref
 
 # Constants
@@ -77,29 +77,19 @@ G = 4.30091e-6            # gravitational constant (kpc/solar mass*(km/s)^2)
 ### Calculating enclosed mass ### 
 #################################
 
-# NFW (dark halo) density profile
-rho_NFW = lambda r: rho0 / ((r/rcut)*(1+r/rcut)**2)
-
-# Isothermal (dark halo) density profile
-rho_ISO = lambda r: rho0 / (1+(r/rcut)**2)
-
-# Inner function
-#mass_inner = lambda r: rho_NFW(r) * 4 * np.pi * r**2
-mass_inner = lambda r: rho_ISO(r) * 4 * np.pi * r**2
-
-# Mass integral: total mass at radius r (kpc)
-#mass_r = lambda r: si.quad(mass_inner, 0, r)   
-# Integral keeps giving me errors, so I used Mathematica to do the integral for me, this is the result:
-def mass_r(r):
-    return 4 * rcut**3 * np.pi * rho0 * (-1 + rcut/(rcut+r) - np.log(rcut) + np.log(rcut+r))
+# Mass as a function of radius, calculated from the Isothermal density profile (see Mathematica code):
+def mass_r(r,rho0):
+    return 4 * np.pi * rho0 * rcut**2  * (r - rcut * (np.arctan(r/rcut)))    
+# rho0 represents the number of tiny black holes at the center of the galaxy
 
 ########################################################
 ### Calculating halo velocity using only black holes ###
 ########################################################
 
-def halo_BH(r,mBH): 
+# What if I just calculate the velocity for each black hole as a point mass?
+def halo_BH(r,mBH,arraysize,rho0):
     x = np.sort(r)
-    y = mBH * np.sqrt(G * mass_r(r)/r)
+    y = np.sqrt((G * (arraysize*mBH) * mass_r(r,rho0)) / r)
     polynomial = interpd(x,y)
     return polynomial(r)
 
@@ -107,10 +97,10 @@ def halo_BH(r,mBH):
 ### Calculating total velocity ###
 ##################################
 
-def totalvelocity(r,mBH,M,bpref,dpref,gpref):
+def totalvelocity(r,mBH,arraysize,rho0,M,bpref,dpref,gpref):    
     total = np.sqrt(blackhole(r,M)**2 
                     + bulge(r,bpref)**2 
                     + disk(r,dpref)**2
-                    + halo_BH(r,mBH)**2
+                    + halo_BH(r,mBH,arraysize,rho0)**2
                     + gas(r,gpref)**2)
     return total
