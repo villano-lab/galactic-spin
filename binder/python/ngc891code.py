@@ -49,7 +49,7 @@ def t(r,B,D,rc,rho00,G):
 # In[3]:
 
 
-rc=2.5 #default value
+rc= 1.9#default value
 rho00=1e8 #default value
 
 v_err1=v_err1
