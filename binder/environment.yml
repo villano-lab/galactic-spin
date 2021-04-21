@@ -7,3 +7,4 @@ dependencies:
   - mpld3
   - h5py
   - lmfit
+  - sympy
