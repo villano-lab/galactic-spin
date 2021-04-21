@@ -43,7 +43,7 @@ def t(r,B,D,rc,rho00,G):
     return np.sqrt((D*d)**2
                    +(B*b)**2
                    +(nf.h_v(r,rc,rho00))**2
-                   +(G*b)**2)
+                   +(G*g)**2)
 
 
 # In[3]:
