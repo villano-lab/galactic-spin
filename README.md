@@ -48,5 +48,6 @@ Citations for anything used in the `graphics` directory can be found in our [pre
 # Contributors
 Judit Bergfalk  
 Kitty Harris  
-Raphael Hatami  
+Raphael Hatami
+Rae Vititoe
 Anthony Villano, Ph.D.
