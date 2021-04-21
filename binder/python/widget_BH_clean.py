@@ -46,7 +46,7 @@ stepN = 10                            # step of # of bh's for slider (this is mu
 
 # For mass of black hole slider:
 minmassBH = 0.1                 # solar masses, arbitrary
-maxmassBH = 3.8                 # solar masses, just smaller then the smallest black hole ever discovered according to
+maxmassBH = 3.8                 # solar masses, size of the smallest black hole ever discovered according to
                                 # https://www.scientificamerican.com/gallery/the-smallest-known-black-hole/
 defaultmass = 1.5               # default mass value for slider
 stepM = minmassBH               # step of mass of bh's
@@ -96,7 +96,7 @@ def f(arraysize,mBH,rcut):
     mass = np.round(np.arange(minmassBH,maxmassBH+stepM,stepM),1)   # array of masses, rounded to 1 decimal
     loc = np.where(mass == mBH)[0]                                  # which element equals to the mBH value, returns position
     BHsize = dotsize[loc[0]]                                        # picks out a dotsize for that mass
-           
+    
     # First plot - image with black holes
     ax1.plot(x,y, linestyle='none', markerfacecolor='orangered', marker="o", markeredgecolor="maroon", markersize=BHsize)
     ax1.imshow(img)
