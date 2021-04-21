@@ -37,10 +37,12 @@ r1 = minkpc*kpctopixels
 r2 = maxkpc*kpctopixels
 
 # For number of black holes slider
-minnumberBH = 10                      # min number of black holes
-maxnumberBH = 1000                    # max number of black holes
-defaultnumber = 510                   # default number of bh's for slider
-stepN = minnumberBH                   # step of # of bh's for slider
+scale = 1e6                           # scale is neccessary to be a constant, otherwise the widget will freeze up the computer! 
+                                      # scale is how many black holes represent each dot on image
+minnumberBH = 50                      # min number of black holes (this is multiplied by the scale)
+maxnumberBH = 5e2                     # max number of black holes (this is multiplied by the scale)
+defaultnumber = 2.2e2                 # default number of bh's for slider (this is multiplied by the scale)
+stepN = 10                            # step of # of bh's for slider (this is multiplied by the scale)
 
 # For mass of black hole slider:
 minmassBH = 0.1                 # solar masses, arbitrary
@@ -49,11 +51,11 @@ maxmassBH = 3.8                 # solar masses, just smaller then the smallest b
 defaultmass = 1.5               # default mass value for slider
 stepM = minmassBH               # step of mass of bh's
 
-# For number of black holes at the center slider
-minrhoBH = 1e4                  # min number of black holes at the center
-maxrhoBH = 1.5e6                # max number of black holes at the center
-defaultrho = 4.2e5              # default number of bh's at the center for slider
-stepRHO = minrhoBH              # step of # of bh's at the center for slider
+# For cutoff radius
+minrcutBH = 0.1                 # min number of black holes at the center
+maxrcutBH = 3.0                 # max number of black holes at the center
+defaultrcut = 1.4               # default number of bh's at the center for slider
+stepRCUT = minrcutBH            # step of # of bh's at the center for slider
 
 # Generate random positions for the donut
 rand_radius = lambda rad1,rad2: np.random.uniform(rad1,rad2,int(maxnumberBH))
@@ -64,7 +66,7 @@ rand_angle = np.random.uniform(0,2*np.pi,int(maxnumberBH))  # angle 0 to 360 deg
 ### Plotting function for widget ###
 ####################################
 
-def f(rho0,arraysize,mBH):
+def f(arraysize,mBH,rcut):
         
      # Change input to an integer
     arraysize = int(arraysize)     # units: dot
@@ -88,24 +90,30 @@ def f(rho0,arraysize,mBH):
     f.set_figheight(10)
     f.set_figwidth(32)
     
+    # Changing the size of each dot as the mass of the black hole changes
+    # Without this the dots would be either too small or too big  
+    dotsize = np.linspace(5,12,int(maxmassBH/stepM + 1))            # array of sizes from 5 to 12 for dots in scatterplot
+    mass = np.round(np.arange(minmassBH,maxmassBH+stepM,stepM),1)   # array of masses, rounded to 1 decimal
+    loc = np.where(mass == mBH)[0]                                  # which element equals to the mBH value, returns position
+    BHsize = dotsize[loc[0]]                                        # picks out a dotsize for that mass
+           
     # First plot - image with black holes
-    ax1.scatter(x,y,color="orangered",marker='o',s=mBH*10)      # s changes the size of the dots on the plot
-    ax1.scatter(c_x,c_y,color="orangered",marker='o',s=rho0/1e3)
+    ax1.plot(x,y, linestyle='none', markerfacecolor='orangered', marker="o", markeredgecolor="maroon", markersize=BHsize)
     ax1.imshow(img)
-    ax1.set_title("Arbitrary face-on galaxy for visual representation")
+    ax1.set_title("Each dot representing 1 million tiny black holes.", fontsize = 20)
     ax1.set_xlim(0,3970)
     ax1.set_ylim(0,3970)
     ax1.axis('off')
     
     # Second plot - rotation curve   
-    ax2.plot(radius_plot,wi5533.halo_BH(radius_plot,mBH,arraysize,rho0),label=("Dark Matter Halo - Tiny Black Holes"),color='green')
+    ax2.plot(radius_plot,wi5533.halo_BH(radius_plot,scale,arraysize,mBH,rcut),label=("Dark Matter Halo - Tiny Black Holes"),color='green')
     ax2.errorbar(wi5533.r_dat,wi5533.v_dat,yerr=wi5533.v_err1,fmt='bo',label='Data')
     ax2.plot(radius_plot,wi5533.blackhole(radius_plot,wi5533.best_M),label=("Central Black Hole"),color='black')
     ax2.plot(radius_plot,wi5533.bulge(radius_plot,wi5533.best_bpref),label=("Bulge"),color='orange')
     ax2.plot(radius_plot,wi5533.disk(radius_plot,wi5533.best_dpref),label=("Disk"),color='purple')
     ax2.plot(radius_plot,wi5533.gas(radius_plot,wi5533.best_gpref),label=("Gas"),color='blue')
     ax2.plot(radius_plot,
-             wi5533.totalvelocity(radius_plot,mBH,arraysize,rho0,wi5533.best_M,wi5533.best_bpref,wi5533.best_dpref,wi5533.best_gpref),
+             wi5533.totalvelocity(radius_plot,scale,arraysize,mBH,rcut,wi5533.best_M,wi5533.best_bpref,wi5533.best_dpref,wi5533.best_gpref),
                                   label=("Total Curve"),color='red')
     ax2.set_title('NGC 5533',fontsize = 40)
     ax2.set_ylabel('Velocity [km/s]',fontsize = 25)
@@ -117,7 +125,7 @@ def f(rho0,arraysize,mBH):
     ax2.legend(loc='upper center',prop={'size': 16},ncol=3)
    
     # Residuals
-    residuals = wi5533.v_dat - wi5533.totalvelocity(wi5533.r_dat,mBH,arraysize,rho0,wi5533.best_M,wi5533.best_bpref,wi5533.best_dpref,wi5533.best_gpref)
+    residuals = wi5533.v_dat - wi5533.totalvelocity(wi5533.r_dat,scale,arraysize,mBH,rcut,wi5533.best_M,wi5533.best_bpref,wi5533.best_dpref,wi5533.best_gpref)
  
     # Determining errors
     errors = wi5533.v_err1**2 #second term is inclination uncertainty
@@ -136,19 +144,9 @@ layout = {'width':'800px'}
 ################################
 
 # Number of projected black dots slider
-rho0 = FloatSlider(min=minrhoBH, max=maxrhoBH, step=stepRHO, 
-                value=defaultrho, 
-                description='Number of tiny black holes at the center dense region (increasing by {:.0f})'.format(stepRHO), 
-                readout=True,
-                readout_format='.1d', 
-                orientation='horizontal', 
-                style=style, layout=layout)
-
-
-# Number of projected black dots slider
 arraysize = FloatSlider(min=minnumberBH, max=maxnumberBH, step=stepN, 
                 value=defaultnumber, 
-                description='Number of tiny black holes in the outer region (increasing by {:.0f})'.format(stepN), 
+                description='Number of millions of tiny black holes (increasing by {:.0f} million)'.format(stepN), 
                 readout=True,
                 readout_format='.2d', 
                 orientation='horizontal', 
@@ -163,10 +161,18 @@ mBH = FloatSlider(min=minmassBH, max=maxmassBH, step=stepM,
                 orientation='horizontal', 
                 style=style, layout=layout)
 
+# Cutoff radius
+rcut = FloatSlider(min=minrcutBH, max=maxrcutBH, step=stepRCUT, 
+                value=defaultrcut,
+                description='Cutoff radius (in kpc, increasing by {:.1f})'.format(stepRCUT), 
+                readout=True,
+                readout_format='.1f',
+                orientation='horizontal', 
+                style=style, layout=layout)
 
 
 def interactive_plot(f):
-    interact = interactive(f, rho0=rho0, arraysize=arraysize, mBH=mBH, continuous_update=False)
+    interact = interactive(f, arraysize=arraysize, mBH=mBH, rcut=rcut, continuous_update=False)
     return interact
 
 ################################
@@ -181,7 +187,7 @@ button = Button(
 out = Output()
 
 def on_button_clicked(_):
-    mBH.value = defaultmass
     arraysize.value = defaultnumber
-    rho0.value = defaultrho
+    mBH.value = defaultmass
+    rcut.value = defaultrcut
 button.on_click(on_button_clicked)
