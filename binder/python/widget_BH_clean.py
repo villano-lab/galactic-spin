@@ -16,7 +16,7 @@ import dataPython as dp
 ####################
 
 # Import galaxy image
-img = plt.imread("NGC_5533/pictures/A_spiral_snowflake.jpg") # import special snowflake ngc 6814, 
+img = plt.imread("../NGC_5533/pictures/A_spiral_snowflake.jpg") # import special snowflake ngc 6814, 
                                                              # which has visual diameter about 27.6 kpc
     
 # Find the center by eye from the image

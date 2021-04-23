@@ -21,18 +21,18 @@ import NGC5533_functions as nf
 #**********************importing text files******************************
 #there's no need to import the radius for each component as everything has the same r array (the r array of the raw data)
 #data:
-data = dp.getXYdata_wXYerr('testing/891/891_data')
+data = dp.getXYdata_wXYerr('../testing/891/891_data')
 r = np.asarray(data['xx'])
 v_dat = np.asarray(data['yy'])
 v_err1 = np.asarray(data['ey'])
 #disk:
-disk = dp.getXYdata('testing/891/891_dtDisk.dat')
+disk = dp.getXYdata('../testing/891/891_dtDisk.dat')
 d = np.asarray(disk['yy'])
 #bulge:
-bulge = dp.getXYdata('testing/891/891_dtBulge.dat')
+bulge = dp.getXYdata('../testing/891/891_dtBulge.dat')
 b = np.asarray(bulge['yy'])
 #gas:
-gas = dp.getXYdata('testing/891/891_dtGas.dat')
+gas = dp.getXYdata('../testing/891/891_dtGas.dat')
 g = np.asarray(gas['yy'])
 
 #***************************define total curve

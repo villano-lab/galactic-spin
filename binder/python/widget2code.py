@@ -43,7 +43,7 @@ warnings.filterwarnings("ignore")  #ignore warnings
 
 #TRACING:**************************************
 #data points:
-data = dp.getXYdata_wXYerr('NGC_5005/traced_data/ngc5005_data.txt')
+data = dp.getXYdata_wXYerr('../NGC_5005/traced_data/ngc5005_data.txt')
 r_dat = np.asarray(data['xx'])
 v_dat = np.asarray(data['yy'])
 v_err0 = np.asarray(data['ex'])
@@ -53,7 +53,7 @@ v_err1 = np.asarray(data['ey'])
 #v_dat=v_dat[:len(v_dat)-1]
 
 #gas rotmod:
-gas_rdata = dp.getXYZdata('testing/aygas.dat') #rotmod_gas.dat
+gas_rdata = dp.getXYZdata('../testing/aygas.dat') #rotmod_gas.dat
 rgasr = gas_rdata['xx']
 rgasv = gas_rdata['zz']
 rgasv=np.asarray(rgasv)
@@ -71,7 +71,7 @@ rgasr=rgasr[0::68]
 '''
 rgasv_fit=rgasv
 #bulge rotmod
-bulge_rdata = dp.getXYZdata('testing/aybulge.dat')
+bulge_rdata = dp.getXYZdata('../testing/aybulge.dat')
 rbulger = bulge_rdata['xx']
 rbulgev = bulge_rdata['zz']
 rbulgev=np.asarray(rbulgev)
@@ -90,7 +90,7 @@ rbulgev_fit=rbulgev
 #rbulgev[1]=653.7
 
 #disk rotmod:
-disk_rdata = dp.getXYZdata('testing/aydisk.dat')
+disk_rdata = dp.getXYZdata('../testing/aydisk.dat')
 rdiskr = disk_rdata['xx']
 rdiskv = disk_rdata['zz']
 rdiskv=np.asarray(rdiskv)
@@ -101,7 +101,7 @@ rdiskv_fit = rdiskv_spline(r_dat)
 rdiskv_fit=rdiskv
 
 #Halo datathief trace:
-halo_dt = dp.getXYdata('NGC_5005/datatheif_halo_spline.txt')
+halo_dt = dp.getXYdata('../NGC_5005/datatheif_halo_spline.txt')
 halo_dtr = halo_dt['xx']
 halo_dtv = halo_dt['yy']
 halo_dtv=np.asarray(halo_dtv)

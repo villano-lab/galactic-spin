@@ -31,7 +31,7 @@ def t(r,Mbh,arraysize):
                +(wi.b)**2
                +(h(r,Mbh,arraysize))**2
                +(wi.g)**2)
-img = mpimg.imread('python/thing.jpg') #import special snowflake ngc 6814, which has visual diameter about 27.6kpc\ 
+img = mpimg.imread('../python/thing.jpg') #import special snowflake ngc 6814, which has visual diameter about 27.6kpc\ 
 
 # Define plotting function
 def f(arraysize,Mbh):
@@ -67,7 +67,7 @@ def f(arraysize,Mbh):
     f.set_figwidth(35)
     
      # Define r, for some reason this isn't working in code7814.py, so put directly here:
-    data = dp.getXYdata_wXYerr('testing/7814/ngc7814data')
+    data = dp.getXYdata_wXYerr('../testing/7814/ngc7814data')
     r = np.asarray(data['xx'])
     z=r[0]
     rr=[0,z]

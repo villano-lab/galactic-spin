@@ -16,21 +16,21 @@ import scipy.integrate as si
 # (the r array of the raw data)
 
 # Datapoints:
-data = dp.getXYdata_wXYerr('testing/7814/ngc7814data')
+data = dp.getXYdata_wXYerr('../testing/7814/ngc7814data')
 radius = np.asarray(data['xx'])
 v_dat = np.asarray(data['yy'])
 v_err1 = np.asarray(data['ey'])
 
 # Disk:
-disk_data = dp.getXYZdata('testing/7814/7814reallydisk.dat')
+disk_data = dp.getXYZdata('../testing/7814/7814reallydisk.dat')
 disk = np.asarray(disk_data['zz'])
 
 # Bulge:
-bulge_data = dp.getXYZdata('testing/7814/7814reallybulge.dat')
+bulge_data = dp.getXYZdata('../testing/7814/7814reallybulge.dat')
 bulge = np.asarray(bulge_data['zz'])
 
 # Gas:
-gas_data = dp.getXYZdata('testing/7814/7814gascomp.dat')
+gas_data = dp.getXYZdata('../testing/7814/7814gascomp.dat')
 gas = np.asarray(gas_data['zz'])
 
 #######################

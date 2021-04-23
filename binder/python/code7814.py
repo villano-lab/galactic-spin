@@ -66,7 +66,7 @@ start=.5*maxmass #default mass value for slider
 #RHO=4*np.pi*r**2*Z #
 #RRR=integrate(RHO)
 #func = lambdify(r, RRR,'numpy') #returns a numpy-ready function
-data = dp.getXYdata_wXYerr('testing/7814/ngc7814data')
+data = dp.getXYdata_wXYerr('../testing/7814/ngc7814data')
 r = np.asarray(data['xx'])
 viso=(1-((rcut/r)*np.arctan(r/rcut))) #this is just the unitless part of the h_viso function in our library
 rr=np.linspace(minkpc,maxkpc,int(Max)) #kpc
@@ -88,13 +88,13 @@ angle=np.random.uniform(0,2*np.pi,int(Max)) #angle 0 to 360 degrees for fulle ci
 v_dat = np.asarray(data['yy'])
 v_err1 = np.asarray(data['ey'])
 #disk:
-disk = dp.getXYZdata('testing/7814/7814reallydisk.dat')
+disk = dp.getXYZdata('../testing/7814/7814reallydisk.dat')
 d = np.asarray(disk['zz'])
 #bulge:
-bulge = dp.getXYZdata('testing/7814/7814reallybulge.dat')
+bulge = dp.getXYZdata('../testing/7814/7814reallybulge.dat')
 b = np.asarray(bulge['zz'])
 #gas:
-gas = dp.getXYZdata('testing/7814/7814gascomp.dat')
+gas = dp.getXYZdata('../testing/7814/7814gascomp.dat')
 g = np.asarray(gas['zz'])
 
 #***************************define total curve

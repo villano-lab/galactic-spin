@@ -16,7 +16,7 @@ import scipy.interpolate as inter
 ##### Measured data points #####
 ################################
 
-data = dp.getXYdata_wXYerr('data/100kpc_data.txt')
+data = dp.getXYdata_wXYerr('../data/100kpc_data.txt')
 #data = dp.getXYdata_wXYerr('../galactic-spin-binder/NGC_5533/data/final/100kpc_data.txt')
 r_dat = np.asarray(data['xx'])
 v_dat = np.asarray(data['yy'])
@@ -53,7 +53,7 @@ r = np.arange(0.1,200,0.1)
 def f(r,M,rc,rho00,c,pref,gpref):
     return np.sqrt(nf.bh_v(r,M,load=False)**2 
                    + nf.h_v(r,rc,rho00,load=False)**2 
-                   + c**2*nf.b_v(r,load=True)**2 
+                   + c**2*nf.b_v(r,load=True,path='../')**2 
                    + pref**2*nf.d_thief(r)**2
                    + gpref**2*nf.g_thief(r)**2)
 
