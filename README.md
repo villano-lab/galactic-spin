@@ -59,6 +59,8 @@ Noordermeer, Edo. “The Rotation Curves of Flattened Sersic Bulges.” Mon. Not
 
 F.  Fraternali, R.  Sancisi, P.  Kamphuis (2011), "A tale of two galaxies: light and mass in NGC 891 and NGC 7814". Astronomy & Astrophysics, 531: A64. https://doi.org/10.1051/0004-6361/201116634
 
+Richards, et al. "Baryonic distributions in the dark matter halo of NGC 5005", MNRAS, Volume 449, Issue 4, 01 June 2015, Pages 3981–3996, https://doi.org/10.1093/mnras/stv568 
+
 NASA. “The Smallest Known Black Hole.” Scientific American, 2 Apr. 2008, www.scientificamerican.com/gallery/the-smallest-known-black-hole.
 
 “GIPSY, the Groningen Image Processing System.” GIPSY, www.astro.rug.nl/~gipsy/index.html. Accessed 2020-2021.
