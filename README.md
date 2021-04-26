@@ -13,7 +13,7 @@ Researchers have observed that some of the stars around a galactic center are ro
 # Instructions
 
 ### RaCAS 2021
-[![Binder](https://mybinder.org/badge_logo.svg)Rotation curve of two galaxies with tiny black holes](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRaCAS2021_widget_2galaxies_withBH.ipynbb)
+[![Binder](https://mybinder.org/badge_logo.svg)Rotation curve of two galaxies with tiny black holes](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRaCAS2021_widget_2galaxies_withBH.ipynb)
 
 ### RaCAS 2020
 [![Binder](https://mybinder.org/badge_logo.svg)Rotation curves of multiple galaxies](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRC_Sliders-Multiple_Galaxies.ipynb)
