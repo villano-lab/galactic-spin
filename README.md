@@ -2,7 +2,7 @@
 This is a repository for an interactive fitting graphic for galactic rotation curves.
 
 # Abstract
-*The following abstract was written for a presentation which focused on the interactive fitting tool.*
+*The following abstract was written for a presentation which focused on interactive fitting tools.*
 
 ### RaCAS 2021
 Researchers have observed that some of the stars around a galactic center are rotating faster than expected. Is there something we cannot see, or do we need to modify our laws of physics? There is evidence indicating that an additional component of the galaxy has not been accounted for. Both astronomers and physicists are focusing on finding this missing ingredient they simply call ‘dark matter’. Two of the possible types of objects they are considering are the elegantly named MACHOs (Massive Compact Halo Objects) and WIMPs (Weakly Interacting Massive Particles). The main focus of our research is to model the known components of the galaxy and investigate the effects on the rotation of stars. As a result, our rotation curve analyses of four galaxies confirm a "missing mass component."  While scientists have traditionally modeled ‘dark matter’ as a microscopic particle, we consider the claim that it may actually be reasonable-sized black holes floating around the galaxy. The straightforward interactive plot available for the general public allows the user to explore these ideas themselves and compare them to the measured velocities.
@@ -11,11 +11,17 @@ Researchers have observed that some of the stars around a galactic center are ro
 “The orbital velocities of matter in galaxies clearly signal the existence of dark matter.” This is the stance of a large portion of the scientific community, but how can we really appreciate the reasons behind this statement and its implications? Our research focuses on understanding the mathematical modeling behind the orbital velocities of galactic matter. By comparing our models to real galactic data, we can visualize both how a model using only luminous matter falls short and how including dark matter might bring our estimations of the galactic orbital velocities into alignment with measured values. We make our results accessible through a computer application that allows people to observe this modeling firsthand regardless of their own math or physics background. Tools like the one we present can help the general public understand and appreciate the concepts behind dark matter and reduce the barrier to entry for early-career scientists trying to learn more about dark matter.
 
 # Instructions
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=binder%2FRotation_Curve_Sliders.ipynb)
+
+### RaCAS 2021
+[![Binder](https://mybinder.org/badge_logo.svg)Rotation curve of two galaxies with tiny black holes](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRaCAS2021_widget_2galaxies_withBH.ipynbb)
+
+### RaCAS 2020
+[![Binder](https://mybinder.org/badge_logo.svg)Rotation curves of multiple galaxies](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRC_Sliders-Multiple_Galaxies.ipynb)
+
 <br /> To run the interactive fitting tool, click on the binder button above. Please be patient when waiting for the environment to load; **note that it may take about 10 minutes to load**. Once the notebook is open, in the top bar, select `Cell`, then choose `Run All`. When both cells are finished running, a plot with sliders will appear beneath the visible code. Enjoy!
 
 The above link is to a version of the notebook made specifically to be run on binder with minimal code visible.
-For those interested, [here](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=binder%2FRotation_Curve_Sliders-With-Code.ipynb)
+For those interested, [here](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2020%2FRotation_Curve_Sliders-With-Code-Single_Galaxy-NGC5533.ipynb)
 is a version with the full code visible. You can also run either version locally by cloning the repository and running one of the notebooks in the `binder` directory.
 
 ## Presentation Materials
@@ -50,6 +56,12 @@ Casertano, Stefano. “Rotation Curve of the Edge-on Spiral Galaxy NGC 5907: Dis
 Karukes, E. V., P. Salucci, and Gianfranco Gentile. "The dark matter distribution in the spiral NGC 3198 out to 0.22 Rvir." Astronomy & Astrophysics 578 (2015): A13. https://doi.org/10.1051/0004-6361/201425339
 
 Noordermeer, Edo. “The Rotation Curves of Flattened Sersic Bulges.” Mon. Not. R. Astron. Soc., April 2008. [https://doi.org/10.1111/j.1365-2966.2008.12837.x](https://doi.org/10.1111/j.1365-2966.2008.12837.x).
+
+F.  Fraternali, R.  Sancisi, P.  Kamphuis (2011), "A tale of two galaxies: light and mass in NGC 891 and NGC 7814". Astronomy & Astrophysics, 531: A64. https://doi.org/10.1051/0004-6361/201116634
+
+NASA. “The Smallest Known Black Hole.” Scientific American, 2 Apr. 2008, www.scientificamerican.com/gallery/the-smallest-known-black-hole.
+
+“GIPSY, the Groningen Image Processing System.” GIPSY, www.astro.rug.nl/~gipsy/index.html. Accessed 2020-2021.
 
 Citations for anything used in the `graphics` directory can be found in our [presentation](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing).
 
