@@ -21,7 +21,7 @@ is a version with the full code visible. You can also run either version locally
 ## Presentation Materials
 
 ### RaCAS 2021
-For RaCAS 2021, we did a presentation and a widget about tiny black holes as dark matter candidates. We have a [video](https://ucdenver.techsmithrelay.com/WwhQ), [slides](https://docs.google.com/presentation/d/1cG65RBMJecK7ksf6yzhlmWfjUJZmJFjao2jtUKyFSCA/edit?usp=sharing).
+For RaCAS 2021, we did a presentation and a widget about tiny black holes as dark matter candidates. We have a [video](https://www.youtube.com/watch?v=szPTC7zp4s8), [slides](https://docs.google.com/presentation/d/1cG65RBMJecK7ksf6yzhlmWfjUJZmJFjao2jtUKyFSCA/edit?usp=sharing).
 
 ### RaCAS 2020
 For RaCAS 2020, we did a presentation and a widget about rotation curves. We have a [video](https://www.youtube.com/watch?v=H470EgAheuM), [slides](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing), a supplementary entry on the [mass to light ratio](https://docs.google.com/presentation/d/1I95JY5h8yNIoOEgOVPC_9bh0AmVL0mldYBuLYkMU7d0/edit?usp=sharing), and other supplementary graphics in the [graphics directory](https://github.com/villano-lab/galactic-spin/tree/master/graphics).
