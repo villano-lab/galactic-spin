@@ -24,7 +24,7 @@ Please note that, unfortunately, the sliders do not appear to work in any mobile
 | Browser | Date Checked | Status |
 |:--------|:------------:|--------|
 |         | **Desktop Browsers** ||
-| Firefox | 25/01/2021   | Working|
+| Firefox | 26/01/2021   | Working|
 | Safari  | 25/01/2021   | Working|
 | Chrome  | 23/04/2020   | Working|
 | Edge    | 17/04/2020   | Working|
@@ -48,6 +48,6 @@ Citations for anything used in the `graphics` directory can be found in our [pre
 # Contributors
 Judit Bergfalk  
 Kitty Harris  
-Raphael Hatami
-Rae Vititoe
+Raphael Hatami  
+Rae Vititoe  
 Anthony Villano, Ph.D.
