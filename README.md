@@ -4,7 +4,11 @@ This is a repository for an interactive fitting graphic for galactic rotation cu
 # Abstract
 *The following abstract was written for a presentation which focused on the interactive fitting tool.*
 
-“The orbital velocities of matter in galaxies clearly signal the existence of dark matter.” This is the stance of a large portion of the scientific community, but how can we really appreciate the reasons behind this statement and its implications? Our research focuses on understanding the mathematical modeling behind the orbital velocities of galactic matter.  By comparing our models to real galactic data, we can visualize both how a model using only luminous matter falls short and how including dark matter might bring our estimations of the galactic orbital velocities into alignment with measured values. We make our results accessible through a computer application that allows people to observe this modeling firsthand regardless of their own math or physics background. Tools like the one we present can help the general public understand and appreciate the concepts behind dark matter and reduce the barrier to entry for early-career scientists trying to learn more about dark matter.
+### RaCAS 2021
+Researchers have observed that some of the stars around a galactic center are rotating faster than expected. Is there something we cannot see, or do we need to modify our laws of physics? There is evidence indicating that an additional component of the galaxy has not been accounted for. Both astronomers and physicists are focusing on finding this missing ingredient they simply call ‘dark matter’. Two of the possible types of objects they are considering are the elegantly named MACHOs (Massive Compact Halo Objects) and WIMPs (Weakly Interacting Massive Particles). The main focus of our research is to model the known components of the galaxy and investigate the effects on the rotation of stars. As a result, our rotation curve analyses of four galaxies confirm a "missing mass component."  While scientists have traditionally modeled ‘dark matter’ as a microscopic particle, we consider the claim that it may actually be reasonable-sized black holes floating around the galaxy. The straightforward interactive plot available for the general public allows the user to explore these ideas themselves and compare them to the measured velocities.
+
+### RaCAS 2020
+“The orbital velocities of matter in galaxies clearly signal the existence of dark matter.” This is the stance of a large portion of the scientific community, but how can we really appreciate the reasons behind this statement and its implications? Our research focuses on understanding the mathematical modeling behind the orbital velocities of galactic matter. By comparing our models to real galactic data, we can visualize both how a model using only luminous matter falls short and how including dark matter might bring our estimations of the galactic orbital velocities into alignment with measured values. We make our results accessible through a computer application that allows people to observe this modeling firsthand regardless of their own math or physics background. Tools like the one we present can help the general public understand and appreciate the concepts behind dark matter and reduce the barrier to entry for early-career scientists trying to learn more about dark matter.
 
 # Instructions
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/villano-lab/galactic-spin/master?filepath=binder%2FRotation_Curve_Sliders.ipynb)
@@ -16,7 +20,11 @@ is a version with the full code visible. You can also run either version locally
 
 ## Presentation Materials
 
-We did a presentation related to this widget. We have a [video](https://www.youtube.com/watch?v=H470EgAheuM), [slides](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing), a supplementary entry on the [mass to light ratio](https://docs.google.com/presentation/d/1I95JY5h8yNIoOEgOVPC_9bh0AmVL0mldYBuLYkMU7d0/edit?usp=sharing), and other supplementary graphics in the [graphics directory](https://github.com/villano-lab/galactic-spin/tree/master/graphics).
+### RaCAS 2021
+For RaCAS 2021, we did a presentation and a widget about tiny black holes as dark matter candidates. We have a [video](https://ucdenver.techsmithrelay.com/WwhQ), [slides](https://docs.google.com/presentation/d/1cG65RBMJecK7ksf6yzhlmWfjUJZmJFjao2jtUKyFSCA/edit?usp=sharing).
+
+### RaCAS 2020
+For RaCAS 2020, we did a presentation and a widget about rotation curves. We have a [video](https://www.youtube.com/watch?v=H470EgAheuM), [slides](https://docs.google.com/presentation/d/1YraVYQ2cxyMKspdaCtHamu_zmWh0HkluK0tK0wfvFP0/edit?usp=sharing), a supplementary entry on the [mass to light ratio](https://docs.google.com/presentation/d/1I95JY5h8yNIoOEgOVPC_9bh0AmVL0mldYBuLYkMU7d0/edit?usp=sharing), and other supplementary graphics in the [graphics directory](https://github.com/villano-lab/galactic-spin/tree/master/graphics).
 
 ## Working Browsers
 The following browsers have been tested with our notebook in binder.  
