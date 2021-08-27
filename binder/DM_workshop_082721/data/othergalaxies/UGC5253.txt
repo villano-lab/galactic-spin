@@ -1,7 +1,3 @@
-#UGC 5253 #SPARC is a database of 175 late-type galaxies (spirals and irregulars) with Spitzer photometry at 3.6 mu (tracing the stellar mass distribution) and high-quality HI+Halpha rotation curves (tracing the gravitational potential out to large radii).
-# Distance = 22.9 Mpc		
-# Rad	Vobs	errV
-# kpc	km/s	km/s
 0.13	232	33.4
 0.25	233	16.9
 0.38	234	14.6
