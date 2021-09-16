@@ -1,2 +1,2 @@
 jupyter labextension install jupyter-matplotlib
-npm run build:labextension
+jupyter labextension update --all
