@@ -8,3 +8,5 @@ dependencies:
   - h5py
   - lmfit
   - sympy
+  - ipywidgets
+  - ffmpeg
