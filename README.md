@@ -1,6 +1,8 @@
 # Overview
 This is a repository for an interactive fitting graphic for galactic rotation curves.
 
+**NOTICE:** Previously, all versions were supported. Due to a bug, versions 1 and 2 are now deprecated. If you would like to use the code on Binder, please be sure to use version 3.0.2 or newer. (This is now the default behavior for Binder.)
+
 # Abstract
 *The following abstract was written for a presentation which focused on interactive fitting tools.*
 
@@ -13,10 +15,10 @@ Researchers have observed that some of the stars around a galactic center are ro
 # Instructions
 
 ### RaCAS 2021
-[![Binder](https://mybinder.org/badge_logo.svg)Rotation curve of two galaxies with tiny black holes](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRaCAS2021_widget_2galaxies_withBH.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg) Rotation curve of two galaxies with tiny black holes](https://mybinder.org/v2/gh/villano-lab/galactic-spin/releases/tag/v3.0.2?filepath=binder%2FRaCAS2021%2FRaCAS2021_widget_2galaxies_withBH.ipynb)
 
 ### RaCAS 2020
-[![Binder](https://mybinder.org/badge_logo.svg)Rotation curves of multiple galaxies](https://mybinder.org/v2/gh/villano-lab/galactic-spin/c99085aa2ab158b381195507d1736d1d63cb8834?filepath=binder%2FRaCAS2021%2FRC_Sliders-Multiple_Galaxies.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg) Rotation curves of multiple galaxies](https://mybinder.org/v2/gh/villano-lab/galactic-spinreleases/tag/v3.0.2?filepath=binder%2FRaCAS2021%2FRC_Sliders-Multiple_Galaxies.ipynb)
 
 <br /> To run the interactive fitting tool, click on the binder button above. Please be patient when waiting for the environment to load; **note that it may take about 10 minutes to load**. Once the notebook is open, in the top bar, select `Cell`, then choose `Run All`. When both cells are finished running, a plot with sliders will appear beneath the visible code. Enjoy!
 
@@ -38,7 +40,7 @@ Please note that, unfortunately, the sliders do not appear to work in any mobile
 | Browser | Date Checked | Status |
 |:--------|:------------:|--------|
 |         | **Desktop Browsers** ||
-| Firefox | 26/01/2021   | Working|
+| Firefox | 12/11/2021   | Working|
 | Safari  | 25/01/2021   | Working|
 | Chrome  | 23/04/2020   | Working|
 | Edge    | 17/04/2020   | Working|
@@ -47,6 +49,10 @@ Please note that, unfortunately, the sliders do not appear to work in any mobile
 |Firefox Mobile | 17/04/2020 | Sliders could not be used. |
 |Safari Mobile  | 22/04/2020 | Sliders could not be used. |
 |Chrome Mobile  | 17/04/2020 | Sliders could not be used. |
+
+## Version Notes
+
+Each major version represents a different presentation or workshop. v1.0.0 represents RaCAS 2020; v2.0.0 represents RaCAS 2021; and v3.0.0 represents our first pilot workshop. **Versions 1 and 2 are now deprecated. If you are using binder, please use v3.0.2 or newer.**
 
 # References
 All of our data and the equations used in most of our calculations comes from Noordermeer (2008). We also used Casertano 1983 for the disk component equations and Karukes, et al., for the halo component.
@@ -73,3 +79,5 @@ Kitty Harris
 Raphael Hatami  
 Rae Vititoe  
 Anthony Villano, Ph.D.
+
+*Last updated 12 Nov 2021, hotfix v3.0.2.*
